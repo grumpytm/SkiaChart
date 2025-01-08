@@ -1,8 +1,8 @@
 # About the app
-Simple chart with two lines that looks like below chart by using the SkiaSharp library.
+Simple chart with two lines created via the SkiaSharp library and based on this image:
 ![Alt text](chart.png?raw=true "Chart")
 
-Right now the chart looks like:
+So far my result looks like:
 ![Alt text](sample.png?raw=true "Chart")
 
 ### To do:
