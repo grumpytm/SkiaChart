@@ -1,5 +1,9 @@
 # About the app
-Simple chart with two lines that looks like the chart.png image using the SkiaSharp library.
+Simple chart with two lines that looks like below chart by using the SkiaSharp library.
+![Alt text](chart.png?raw=true "Chart")
+
+Right now the chart looks like:
+![Alt text](sample.png?raw=true "Chart")
 
 ### To do:
 - [ ] update obsolete (TextSize, Typeface, DrawText and MeasureText) as per last SkiaSharp version
