@@ -105,48 +105,54 @@ public class VisitsChart
         var top = innerRect.Top - 15;
         var right = innerRect.Right - 5;
 
-        // Chart title
+        // Text font & style
+        var titleFont = new SKFont(SKTypeface.FromFamilyName("Arial", SKFontStyle.Bold), 16);
+
+        // Text color
         var titlePaint = new SKPaint
         {
             Color = SKColor.Parse("#666666"),
-            TextSize = 12,
-            Typeface = SKTypeface.FromFamilyName(default, SKFontStyle.Bold), // 
             IsAntialias = true
         };
 
-        canvas.DrawText(legend[0], left, top, titlePaint);
+        // Chart title
+        canvas.DrawText(legend[0], left, top, titleFont, titlePaint);
 
         // Text & line paint
-        var textPaint = new SKPaint
-        {
-            Color = SKColors.Black,
-            TextSize = 12,
-            IsAntialias = true
-        };
-
         var linePaint = new SKPaint
         {
             Style = SKPaintStyle.Stroke,
-            StrokeWidth = 5
+            StrokeWidth = 5,
         };
 
         // Last element is drawn first
-        var size = textPaint.MeasureText(legend[2]);
+        var legendFont = new SKFont(SKTypeface.FromFamilyName("Arial", SKFontStyle.Bold), 12);
+        var size = legendFont.MeasureText(legend[2]);
 
         linePaint.Color = lineColors[0];
-        canvas.DrawText(legend[2], right - size, top, textPaint);
+        canvas.DrawText(legend[2], right - size, top, legendFont, titlePaint);
         canvas.DrawLine(right - size - 25, top - 5, right - size - 5, top - 5, linePaint);
 
         // First element is drawn last
-        size += textPaint.MeasureText(legend[1]) + 35;
-        canvas.DrawText(legend[1], right - size, top, textPaint);
+        size += legendFont.MeasureText(legend[1]) + 35;
+        canvas.DrawText(legend[1], right - size, top, legendFont, titlePaint);
+
         linePaint.Color = lineColors[1];
         canvas.DrawLine(right - size - 25, top - 5, right - size - 5, top - 5, linePaint);
     }
 
     private void DrawYAxisLegend(SKCanvas canvas, SKRect innerRect, float maxValue, int radius)
     {
-        var textPaint = new SKPaint { Color = SKColor.Parse("#999999"), TextSize = 12, IsAntialias = true };
+
+        // Text font & style
+        var titleFont = new SKFont(SKTypeface.FromFamilyName("Arial", SKFontStyle.Normal), 12);
+
+        // Text color
+        var titlePaint = new SKPaint
+        {
+            Color = SKColor.Parse("#666666"),
+            IsAntialias = true
+        };
 
         int numberOfLabels = 5;
         float stepY = innerRect.Height / numberOfLabels;
@@ -158,8 +164,8 @@ public class VisitsChart
             float yPos = bottom - i * stepY;
             float value = i * valueStep;
             string valueText = value.ToString("0");
-            float textWidth = textPaint.MeasureText(valueText);
-            canvas.DrawText(valueText, innerRect.Left - (textWidth + 10), yPos, textPaint);
+            float textWidth = titleFont.MeasureText(valueText);
+            canvas.DrawText(valueText, innerRect.Left - (textWidth + 10), yPos, titleFont, titlePaint);
         }
     }
 
