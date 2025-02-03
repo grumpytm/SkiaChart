@@ -1,8 +1,10 @@
 # About the app
-Simple chart with two lines created via the SkiaSharp library and based on this image:
+Simple app to showcase a simple chart with two lines created with [SkiaSharp](https://github.com/mono/SkiaSharp) library using this image as inspiration
+
 ![Alt text](Images/chart.png?raw=true "Chart")
 
-So far my result looks like:
+so far my result looks like:
+
 ![Alt text](Images/sample.png?raw=true "Chart")
 
 ### To do:
